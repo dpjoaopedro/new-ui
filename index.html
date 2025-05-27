@@ -6,6 +6,13 @@
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#79818a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="New UI">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <style>
         .notifications {
             position-anchor: --button;
@@ -112,6 +119,14 @@
                     });
             });
         }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Optionally, show your own install button and trigger deferredPrompt.prompt() on click
+            console.log('beforeinstallprompt event fired');
+        });
     </script>
 </head>
 
