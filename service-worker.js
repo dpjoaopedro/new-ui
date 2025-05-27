@@ -9,3 +9,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // You can add caching logic here if desired
 });
+
+self.addEventListener('message', event => {
+    console.log('Received message from client:', event.data);
+});
